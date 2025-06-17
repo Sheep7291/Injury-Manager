@@ -21,4 +21,9 @@ public class InjuryController {
     List<InjuryDto> getInjuriesByUsername(@RequestParam String username){
        return injuryService.returnUserInjuries(username);
     }
+
+    @GetMapping("/injuries/all")
+    List<InjuryDto> getInjuries(){
+        return injuryService.returnAllInjuries();
+    }
 }

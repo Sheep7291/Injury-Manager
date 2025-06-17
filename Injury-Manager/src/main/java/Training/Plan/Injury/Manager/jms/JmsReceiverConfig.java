@@ -1,5 +1,6 @@
 package Training.Plan.Injury.Manager.jms;
 
+import Training.Plan.Injury.Manager.dto.InjuryDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
@@ -9,6 +10,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 public class JmsReceiverConfig {
@@ -26,6 +30,10 @@ public class JmsReceiverConfig {
         converter.setObjectMapper(customObjectMapper());
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName("_asb_");
+
+        Map<String, Class<?>> typeidMappings = new HashMap<>();
+        typeidMappings.put("InjuryDto", InjuryDto.class);
+        converter.setTypeIdMappings(typeidMappings);
         return converter;
     }
 }

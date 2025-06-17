@@ -39,5 +39,21 @@ public class InjuryService {
                 .timeWhenInjuryHappen(injuryDto.getTimeWhenInjuryHappen())
                 .source(injuryDto.getSource())
                 .build();
+        injuryRepository.save(injuryEntity);
+    }
+
+    public List<InjuryDto> returnAllInjuries() {
+        List<InjuryEntity> injuryEntities = injuryRepository.findAll();
+        List<InjuryDto> injuryDtoList = injuryEntities
+                .stream()
+                .map(injuryEntity -> InjuryDto.builder()
+                        .username(injuryEntity.getUsername())
+                        .nameOfInjury(injuryEntity.getNameOfInjury())
+                        .timeWhenInjuryHappen(injuryEntity.getTimeWhenInjuryHappen())
+                        .source(injuryEntity.getSource())
+                        .build())
+                .collect(Collectors.toList());
+
+        return injuryDtoList;
     }
 }

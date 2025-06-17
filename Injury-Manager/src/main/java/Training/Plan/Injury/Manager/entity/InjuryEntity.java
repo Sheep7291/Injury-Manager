@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class InjuryEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private long id;
     private String username;
