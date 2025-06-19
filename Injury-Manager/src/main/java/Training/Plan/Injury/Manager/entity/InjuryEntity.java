@@ -19,4 +19,5 @@ public class InjuryEntity {
     private String nameOfInjury;
     private LocalDate timeWhenInjuryHappen;
     private String source;
+    private String injuryDetails;
 }

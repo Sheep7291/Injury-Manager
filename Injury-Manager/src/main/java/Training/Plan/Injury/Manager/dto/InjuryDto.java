@@ -17,4 +17,5 @@ public class InjuryDto implements Serializable {
     private String nameOfInjury;
     private LocalDate timeWhenInjuryHappen;
     private String source;
+    private String injuryDetails;
 }

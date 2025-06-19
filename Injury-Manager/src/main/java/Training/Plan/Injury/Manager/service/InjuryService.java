@@ -51,6 +51,7 @@ public class InjuryService {
                         .nameOfInjury(injuryEntity.getNameOfInjury())
                         .timeWhenInjuryHappen(injuryEntity.getTimeWhenInjuryHappen())
                         .source(injuryEntity.getSource())
+                        .injuryDetails(injuryEntity.getInjuryDetails())
                         .build())
                 .collect(Collectors.toList());
 
